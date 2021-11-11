@@ -19,7 +19,8 @@ class Product(models.Model):
     price = models.FloatField()
     stock = models.IntegerField()
     category = models.ForeignKey(Categorie, on_delete=models.CASCADE)
-    image_url = models.ImageField(upload_to='Images/')  # since url are of 2083 max characters
+    # since url are of 2083 max characters
+    image_url = models.ImageField(upload_to='Images/')
 
     @staticmethod
     def get_products_by_id(ids):
@@ -51,3 +52,6 @@ class Order(models.Model):
 
     def place_order(self):
         self.save()
+
+    def __str__(self):
+        return self.name
