@@ -53,5 +53,3 @@ class Order(models.Model):
     def place_order(self):
         self.save()
 
-    def __str__(self):
-        return self.name
